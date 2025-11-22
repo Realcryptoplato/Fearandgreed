@@ -35,9 +35,12 @@ def fetch_fng(limit=0):
     """
     url = "https://api.alternative.me/fng/"
     params = {"limit": limit, "format": "json"}
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+    }
 
     print("Fetching Fear & Greed Index data...")
-    resp = requests.get(url, params=params, timeout=10)
+    resp = requests.get(url, params=params, headers=headers, timeout=10)
     resp.raise_for_status()
     payload = resp.json()
 
@@ -65,9 +68,12 @@ def fetch_btc_daily_from_coingecko():
         "days": "max",
         "interval": "daily",
     }
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+    }
 
     print("Fetching Bitcoin price data...")
-    resp = requests.get(url, params=params, timeout=10)
+    resp = requests.get(url, params=params, headers=headers, timeout=10)
     resp.raise_for_status()
     data = resp.json()
 
