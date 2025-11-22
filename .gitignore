@@ -41,12 +41,11 @@ env/
 .env
 .env.local
 
-# Data files
-*.csv
-*.xlsx
+# Data files (but keep sample data and example results)
 data/
-results/
 backtest_results/
+!sample_market_data.csv
+!results/
 
 # Logs
 *.log
