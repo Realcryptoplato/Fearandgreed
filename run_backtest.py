@@ -27,8 +27,8 @@ plt.rcParams['figure.figsize'] = (14, 8)
 plt.rcParams['font.size'] = 10
 
 # Create output directories
-OUTPUT_DIR = Path("results")
-OUTPUT_DIR.mkdir(exist_ok=True)
+OUTPUT_DIR = Path("examples/output_charts")
+OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 
 def create_nav_chart_with_trades(equity_curve, trades, params, strategy_name, output_file):
@@ -311,7 +311,7 @@ def main():
     except Exception as e:
         print(f"⚠ API fetch failed ({str(e)})")
         print("📁 Loading sample data from CSV...")
-        df = pd.read_csv('sample_market_data.csv')
+        df = pd.read_csv('examples/sample_data/sample_market_data.csv')
         df['date'] = pd.to_datetime(df['date']).dt.date
         print(f"✓ Loaded {len(df)} days of sample data")
 

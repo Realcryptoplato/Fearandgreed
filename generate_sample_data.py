@@ -149,8 +149,10 @@ def create_merged_sample_data(start_date='2020-01-01', end_date='2024-11-22',
     return df
 
 
-def save_sample_data(df, filename='sample_market_data.csv'):
+def save_sample_data(df, filename='examples/sample_data/sample_market_data.csv'):
     """Save sample data to CSV"""
+    from pathlib import Path
+    Path(filename).parent.mkdir(parents=True, exist_ok=True)
     df.to_csv(filename, index=False)
     print(f"✓ Saved sample data to: {filename}")
 
